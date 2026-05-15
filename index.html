@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charter Plumbing Air Electric | Wolfe City, TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --steel: #1B3A5C;
+    --orange: #E8630A;
+    --orange-light: #FF7A1A;
+    --cream: #F5F0E8;
+    --white: #FFFFFF;
+    --gray: #6B7280;
+    --light: #F9F7F4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); letter-spacing: 2px; }
+  .logo span { color: var(--orange); }
+  .nav-phone { color: var(--orange); font-weight: 600; font-size: 15px; text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: #CBD5E1; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,99,10,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { max-width: 640px; position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,99,10,0.15);
+    border: 1px solid rgba(232,99,10,0.3);
+    color: var(--orange-light);
+    padding: 6px 16px; border-radius: 40px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 90px);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero p {
+    color: #94A3B8;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 500px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary {
+    background: var(--orange); color: var(--white);
+    padding: 14px 30px; border-radius: 6px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    padding: 14px 30px; border-radius: 6px;
+    font-weight: 500; font-size: 15px; text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 60px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--orange); letter-spacing: 1px; line-height: 1; }
+  .stat-label { color: #64748B; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--orange);
+    padding: 16px 5%;
+    display: flex; align-items: center; justify-content: center; gap: 48px;
+    flex-wrap: wrap;
+  }
+  .trust-item { color: var(--white); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+  .trust-item svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.8); }
+
+  /* SERVICES */
+  .services { padding: 100px 5%; background: var(--light); }
+  .section-label { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 56px); color: var(--navy); letter-spacing: 1px; margin-bottom: 16px; }
+  .section-sub { color: var(--gray); font-size: 16px; line-height: 1.6; max-width: 520px; margin-bottom: 60px; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .service-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 36px 32px;
+    border: 1px solid #E8EDF3;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 4px; height: 0;
+    background: var(--orange);
+    transition: height 0.3s ease;
+    border-radius: 0 0 4px 0;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(13,27,42,0.1); border-color: #D1D9E3; }
+  .service-card:hover::before { height: 100%; }
+  .service-icon {
+    width: 54px; height: 54px; border-radius: 12px;
+    background: rgba(232,99,10,0.08);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .service-icon svg { width: 26px; height: 26px; stroke: var(--orange); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .service-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; margin-bottom: 10px; }
+  .service-card p { color: var(--gray); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+  .service-list { list-style: none; }
+  .service-list li { font-size: 13px; color: #4B5563; padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+  .service-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+
+  /* WHY US */
+  .why { padding: 100px 5%; background: var(--navy); }
+  .why .section-title { color: var(--white); }
+  .why .section-sub { color: #64748B; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; margin-top: 60px; }
+  .why-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 36px 28px;
+    transition: background 0.2s;
+  }
+  .why-item:hover { background: rgba(232,99,10,0.08); }
+  .why-num { font-family: 'Bebas Neue', sans-serif; font-size: 54px; color: rgba(232,99,10,0.25); letter-spacing: 2px; line-height: 1; margin-bottom: 12px; }
+  .why-item h4 { color: var(--white); font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+  .why-item p { color: #64748B; font-size: 13px; line-height: 1.7; }
+
+  /* AREAS */
+  .areas { padding: 80px 5%; background: var(--cream); }
+  .areas-wrap { display: flex; gap: 60px; align-items: start; flex-wrap: wrap; }
+  .areas-left { flex: 1; min-width: 280px; }
+  .areas-right { flex: 2; min-width: 280px; }
+  .area-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .area-tag {
+    background: var(--white); border: 1px solid #D8D0C4;
+    padding: 8px 18px; border-radius: 40px;
+    font-size: 13px; color: var(--navy); font-weight: 500;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .area-tag:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+
+  /* REVIEWS */
+  .reviews { padding: 100px 5%; background: var(--white); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
+  .review-card {
+    background: var(--light);
+    border-radius: 12px; padding: 28px;
+    border: 1px solid #EAE6DF;
+  }
+  .stars { color: var(--orange); font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+  .review-text { color: #374151; font-size: 14px; line-height: 1.8; font-style: italic; margin-bottom: 18px; }
+  .reviewer { font-weight: 600; font-size: 13px; color: var(--navy); }
+  .reviewer-loc { color: var(--gray); font-size: 12px; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--orange);
+    padding: 80px 5%;
+    text-align: center;
+  }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 70px); color: var(--white); letter-spacing: 2px; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 36px; }
+  .btn-white { background: var(--white); color: var(--orange); padding: 15px 36px; border-radius: 6px; font-weight: 700; font-size: 16px; text-decoration: none; display: inline-block; transition: transform 0.2s; }
+  .btn-white:hover { transform: translateY(-3px); }
+
+  /* FOOTER */
+  footer { background: #060E17; padding: 50px 5% 30px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); letter-spacing: 2px; margin-bottom: 12px; }
+  .footer-logo span { color: var(--orange); }
+  footer p, footer a { color: #64748B; font-size: 13px; line-height: 1.8; text-decoration: none; display: block; }
+  footer a:hover { color: var(--orange); }
+  .footer-head { color: var(--white); font-weight: 600; font-size: 14px; margin-bottom: 14px; letter-spacing: 0.5px; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .footer-bottom p { color: #3D4F62; font-size: 12px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media(max-width:640px) {
+    .nav-links { display: none; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .trust-bar { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Charter <span>PAE</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#areas">Service Areas</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:9034962338" class="nav-phone">(903) 496-2338</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      Family-Owned Since 2009 · Wolfe City, TX
+    </div>
+    <h1>Plumbing.<br><span>Air.</span><br>Electric.</h1>
+    <p>Your one-stop home service experts for Hunt County and North Texas. Licensed, honest, and available around the clock when you need us most.</p>
+    <div class="hero-btns">
+      <a href="tel:9034962338" class="btn-primary">Call (903) 496-2338</a>
+      <a href="#services" class="btn-outline">View All Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Emergency Service</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Trades Under One Roof</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 1L15.5 8.5L23 9.5L17.5 15L19 22.5L12 19L5 22.5L6.5 15L1 9.5L8.5 8.5L12 1Z"/></svg>
+    Licensed & Insured
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    Free Phone Consultations
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Same-Day Service Available
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+    Family-Owned & Operated
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Three Trades.<br>One Trusted Team.</div>
+  <div class="section-sub">No more juggling multiple contractors. Charter handles your plumbing, air conditioning, and electrical needs under one roof — with the same honest, family values every time.</div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <h3>Plumbing</h3>
+      <p>From dripping faucets to full pipe replacements — we've been trusted by North Texas homeowners and businesses since 2009.</p>
+      <ul class="service-list">
+        <li>Drain cleaning & clearing</li>
+        <li>Pipe repair & repiping</li>
+        <li>Water heater install & repair</li>
+        <li>Leak detection</li>
+        <li>Sump pump installation</li>
+        <li>Trenchless sewer repair</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zM12 14c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
+      </div>
+      <h3>Air & HVAC</h3>
+      <p>Keep your home comfortable year-round. Our certified HVAC technicians handle everything from tune-ups to full system replacements.</p>
+      <ul class="service-list">
+        <li>AC repair & installation</li>
+        <li>Heating system service</li>
+        <li>Seasonal tune-ups</li>
+        <li>Duct cleaning & sealing</li>
+        <li>Thermostat upgrades</li>
+        <li>Emergency HVAC repair</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3>Electrical</h3>
+      <p>Safe, code-compliant electrical work from a licensed team. We handle residential and commercial electrical for the full North Texas area.</p>
+      <ul class="service-list">
+        <li>Panel upgrades & repair</li>
+        <li>Outlet & wiring work</li>
+        <li>Lighting installation</li>
+        <li>Gas line services</li>
+        <li>Code compliance work</li>
+        <li>Emergency electrical</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-label">Why Charter</div>
+  <div class="section-title">Honest Work.<br>Every Time.</div>
+  <div class="section-sub">We've built our reputation on doing the job right the first time — and treating every customer like a neighbour.</div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h4>Always Available</h4>
+      <p>Round-the-clock emergency service. When your heat goes out at midnight, we answer.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h4>No Pushy Upsells</h4>
+      <p>We repair before we replace. Honest assessments, no unnecessary work.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h4>Free Consultations</h4>
+      <p>Call us with any question. Free phone consultations, no commitment required.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <h4>Family Values</h4>
+      <p>15+ years in this community. We treat your home the way we treat ours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="areas-wrap">
+    <div class="areas-left">
+      <div class="section-label">Where We Serve</div>
+      <div class="section-title">North Texas Is Our Home</div>
+      <p style="color:var(--gray);font-size:15px;line-height:1.7;margin-top:16px">Based in Wolfe City, we serve communities across Hunt County, Collin County, and the greater North Texas region. If you're not sure we cover your area, just call — we'll let you know.</p>
+      <a href="tel:9034962338" class="btn-primary" style="margin-top:28px;display:inline-block">Check Your Area</a>
+    </div>
+    <div class="areas-right">
+      <div class="area-tags">
+        <span class="area-tag">Wolfe City</span>
+        <span class="area-tag">Greenville</span>
+        <span class="area-tag">Commerce</span>
+        <span class="area-tag">Rockwall</span>
+        <span class="area-tag">McKinney</span>
+        <span class="area-tag">Farmersville</span>
+        <span class="area-tag">Van Alstyne</span>
+        <span class="area-tag">Sulphur Springs</span>
+        <span class="area-tag">Anna</span>
+        <span class="area-tag">Blue Ridge</span>
+        <span class="area-tag">Emory</span>
+        <span class="area-tag">Campbell</span>
+        <span class="area-tag">Lone Oak</span>
+        <span class="area-tag">Nevada, TX</span>
+        <span class="area-tag">Hunt County</span>
+        <span class="area-tag">Collin County</span>
+        <span class="area-tag">+ Surrounding Areas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-label">Customer Reviews</div>
+  <div class="section-title">What Our Neighbours Say</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Charter Plumbing has been our family's go-to for years. They show up when they say they will, explain everything clearly, and never try to sell you something you don't need."</p>
+      <div class="reviewer">Sandra M.</div>
+      <div class="reviewer-loc">Greenville, TX</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Had an AC emergency on a Sunday afternoon. Charter was at my door within two hours and had it fixed before dinner. Incredible service — these guys are the real deal."</p>
+      <div class="reviewer">James T.</div>
+      <div class="reviewer-loc">Wolfe City, TX</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I've used them for plumbing and electrical. Honest, professional, and reasonably priced every single time. I recommend Charter to everyone in the area."</p>
+      <div class="reviewer">Linda R.</div>
+      <div class="reviewer-loc">Commerce, TX</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <h2>Ready to Get Started?</h2>
+  <p>Call us now for a free consultation — no pressure, no commitment.</p>
+  <a href="tel:9034962338" class="btn-white">(903) 496-2338 — Call Now</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Charter <span>PAE</span></div>
+      <p>Plumbing, Air & Electric services for Wolfe City and North Texas. Licensed, family-owned, and available 24/7.</p>
+    </div>
+    <div>
+      <div class="footer-head">Services</div>
+      <a href="#services">Plumbing</a>
+      <a href="#services">Air & HVAC</a>
+      <a href="#services">Electrical</a>
+      <a href="#services">Emergency Service</a>
+    </div>
+    <div>
+      <div class="footer-head">Service Areas</div>
+      <a href="#areas">Wolfe City</a>
+      <a href="#areas">Greenville</a>
+      <a href="#areas">Commerce</a>
+      <a href="#areas">Hunt & Collin County</a>
+    </div>
+    <div>
+      <div class="footer-head">Contact</div>
+      <a href="tel:9034962338">(903) 496-2338</a>
+      <p>Available 24/7 for emergencies</p>
+      <p style="margin-top:12px">Free phone consultations</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Charter Plumbing Air Electric LLC · Wolfe City, TX</p>
+    <p>Licensed · Insured · Family-Owned Since 2009</p>
+  </div>
+</footer>
+
+</body>
+</html>
